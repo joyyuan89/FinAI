@@ -23,6 +23,13 @@
 * Web summarizer
 * Deep dive into Central_bank_speech with BERT: keyword extraction, topic trend tracker, heatmap of today's topics  
   https://jiayueyuan-kol-model-v1-beta.streamlit.app/
+  
+  
+# References & useful materials
+https://github.com/openai/openai-cookbook.git
+
+# other apps
+BloombergGPT: A Large Language Model for Finance: https://arxiv.org/abs/2303.17564
 
 
 
