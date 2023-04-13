@@ -36,7 +36,7 @@ Similar to Web Q&A but the data source is file-based.
   Deployed in Stremalit with multiple pages:  
   * keyword extraction
   * topic trend tracker
-  * heatmap of today's topics
+  * heatmap of today's topic
   https://jiayueyuan-kol-model-v1-beta.streamlit.app/
   
 # References & useful materials
