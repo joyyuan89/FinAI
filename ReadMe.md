@@ -27,6 +27,7 @@
   
 # References & useful materials
 https://github.com/openai/openai-cookbook.git
+https://python.langchain.com/en/latest/index.html#
 
 # other apps
 BloombergGPT: A Large Language Model for Finance: https://arxiv.org/abs/2303.17564
