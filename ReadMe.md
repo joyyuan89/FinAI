@@ -21,11 +21,22 @@
 * Apply time decay function and plot the topic trend
 
 # Apps
-* Web Q&A
-* File Q&A 
-* Deep dive into Central_bank_speech with BERT
-  Deployed in Stremalit
-  pages: keyword extraction, topic trend tracker, heatmap of today's topics  
+* Web Q&A  
+Answer any questions based on the text crawled from a website!
+   * Web crawlling
+   * Split text into chunks if the text is too long (a walk-around solution for limit of number of tokens)
+   * Embed chunks
+   * Search for the most relevant chunks based on the embeddings of the question
+   * Answer questions based on relevant chunks
+
+* File Q&A  
+Similar to Web Q&A but the data source is file-based.
+
+* Deep dive into Central_bank_speech with BERT  
+  Deployed in Stremalit with multiple pages:  
+  * keyword extraction
+  * topic trend tracker
+  * heatmap of today's topics
   https://jiayueyuan-kol-model-v1-beta.streamlit.app/
   
 # References & useful materials
