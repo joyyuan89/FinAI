@@ -1,11 +1,11 @@
-# toolbox
+# Toolbox
 * text embedding
 * topic classification
 * topic clustering
 
 
 # Case study
-## Back to the great inflation in 1980s 
+## * Back to the great inflation in 1980s 
 ### 1. FED meeting minutes
    FED meeting minutes in 1980s are quite standardized and structured. Analysis process:
 * Search the most relevent content about a topic: embedding+similarity or chatGPT prompt
@@ -21,7 +21,7 @@
 * Apply time decay function and plot the topic trend
 
 # Apps
-## Web Q&A  
+## * Web Q&A  
 Answer any questions based on the text crawled from a website!
    * Web crawlling
    * Split text into chunks if the text is too long (a walk-around solution for limit of number of tokens)
@@ -29,10 +29,10 @@ Answer any questions based on the text crawled from a website!
    * Search for the most relevant chunks based on the embeddings of the question
    * Answer questions based on relevant chunks
 
-## File Q&A  
+## * File Q&A  
 Similar to Web Q&A but the data source is file-based.
 
-## Deep dive into Central_bank_speech with BERT  
+## * Deep dive into Central_bank_speech with BERT  
   Deployed in Stremalit with multiple pages:  
   * keyword extraction
   * topic trend tracker
@@ -45,7 +45,7 @@ https://jiayueyuan-kol-model-v1-beta.streamlit.app/
 * https://python.langchain.com/en/latest/index.html#
 
 
-# other apps
+# Other AI Applications in Finance
 BloombergGPT: A Large Language Model for Finance: https://arxiv.org/abs/2303.17564
 
 
