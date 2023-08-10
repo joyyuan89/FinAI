@@ -1,0 +1,159 @@
+﻿group,set,index
+1,US_equity,SPX Index
+1,Asian_currency,ADXY Index
+1,US_bond_gov,TLT US Equity
+1,US_bond_hg,LQD US Equity
+1,Copper,LOCADY Comdty
+1,US_rates,USGG2YR Index
+1,US_equity_AMZN,AMZN US Equity
+1,Crude oil,EUCRBRDT Index
+2,G7_currency,USDEUR Curncy
+2,G7_currency,USDAUD Curncy
+2,G7_currency,USDJPY Curncy
+2,G7_currency,USDGBP Curncy
+2,G7_currency,USDCAD Curncy
+2,G7_currency,USDNZD Curncy
+2,G7_currency,USDCHF Curncy
+2,EM_currency,USDCNY Curncy
+2,EM_currency,USDIDR Curncy
+2,EM_currency,USDTHB Curncy
+2,EM_currency,USDTWD Curncy
+2,EM_currency,USDBRL Curncy
+2,EM_currency,USDMXN Curncy
+2,EM_currency,USDRUB Curncy
+2,EM_currency,USDINR Curncy
+2,US_equity_S&P,SPX Index
+2,US_equity_apple,AAPL US Equity
+2,US_equity_ecom,AMZN US Equity
+2,US_equity_retailer,WMT US Equity
+2,US_equity_retailer,COST US Equity
+2,US_equity_retailer,TGT US Equity
+2,US_equity_retailer,DG US Equity
+2,US_equity_retailer,DLTR US Equity
+2,US_equity_beverage,KO US Equity
+2,US_equity_beverage,PEP US Equity
+2,US_equity_beverage,KDP US Equity
+2,US_equity_beverage,MNST US Equity
+2,US_equity_oil,XOM US Equity
+2,US_equity_oil,CVX US Equity
+2,US_equity_oil,COP US Equity
+2,US_equity_oil,EOG US Equity
+2,US_equity_oil,OXY US Equity
+2,US_equity_oil,PXD US Equity
+2,US_equity_oil,DVN US Equity
+2,US_equity_oil,HES US Equity
+2,US_equity_oil,FANG US Equity
+2,US_equity_oil,CTRA US Equity
+2,US_equity_oil,MRO US Equity
+2,US_equity_oil,APA US Equity
+2,US_equity_rest,MCD US Equity
+2,US_equity_rest,SBUX US Equity
+2,US_equity_rest,CMG US Equity
+2,US_equity_rest,YUM US Equity
+2,US_equity_rest,DRI US Equity
+2,US_equity_rest,DPZ US Equity
+2,US_equity_household,PG US Equity
+2,US_equity_household,EL US Equity
+2,US_equity_household,CL US Equity
+2,US_equity_household,KMB US Equity
+2,US_equity_household,CLX US Equity
+2,US_equity_household,CHD US Equity
+2,US_equity_household,NWL US Equity
+2,US_equity_health_0,JNJ US Equity
+2,US_equity_health_0,LLY US Equity
+2,US_equity_health_0,MRK US Equity
+2,US_equity_health_0,ABBV US Equity
+2,US_equity_health_0,PFE US Equity
+2,US_equity_health_0,BMY US Equity
+2,US_equity_health_0,AMGN US Equity
+2,US_equity_health_0,GILD US Equity
+2,US_equity_health_0,BIIB US Equity
+2,US_equity_health_0,OGN US Equity
+2,US_equity_health_1,CVS US Equity
+2,US_equity_health_1,UNH US Equity
+2,US_equity_health_1,ELV US Equity
+2,US_equity_health_1,CI US Equity
+2,US_equity_health_1,HUM US Equity
+2,US_equity_health_1,CNC US Equity
+2,US_equity_health_1,MOH US Equity
+2,US_equity_bank,JPM US Equity
+2,US_equity_bank,BAC US Equity
+2,US_equity_bank,WFC US Equity
+2,US_equity_bank,C US Equity
+2,US_equity_invest,SCHW US Equity
+2,US_equity_invest,MS US Equity
+2,US_equity_invest,GS US Equity
+2,US_equity_invest,RJF US Equity
+2,US_equity_invest,MKTX US Equity
+2,US_equity_rail,UNP US Equity
+2,US_equity_rail,CSX US Equity
+2,US_equity_rail,NSC US Equity
+2,US_equity_rail,WAB US Equity
+2,US_equity_def,RTX US Equity
+2,US_equity_def,LMT US Equity
+2,US_equity_def,BA US Equity
+2,US_equity_def,NOC US Equity
+2,US_equity_def,GD US Equity
+2,US_equity_def,LHX US Equity
+2,US_equity_def,TDG US Equity
+2,US_equity_def,TXT US Equity
+2,US_equity_def,HII US Equity
+2,US_equity_tabacco,PM US Equity
+2,US_equity_tabacco,MO US Equity
+2,US_equity_logistics,UPS US Equity
+2,US_equity_logistics,FDX US Equity
+2,US_equity_logistics,JBHT US Equity
+2,US_equity_logistics,EXPD US Equity
+2,US_equity_logistics,CHRW US Equity
+2,US_equity_chem,LIN US Equity
+2,US_equity_chem,SHW US Equity
+2,US_equity_chem,ECL US Equity
+2,US_equity_chem,ALB US Equity
+2,US_equity_chem,LYB US Equity
+2,US_equity_chem,PPG US Equity
+2,US_equity_chem,IFF US Equity
+2,US_equity_util,NEE US Equity
+2,US_equity_util,DUK US Equity
+2,US_equity_util,SO US Equity
+2,US_equity_util,AEP US Equity
+2,US_equity_util,XEL US Equity
+2,US_equity_util,PCG US Equity
+2,US_equity_util,ED US Equity
+2,US_equity_util,WEC US Equity
+2,US_equity_util,ES US Equity
+2,US_equity_util,DTE US Equity
+2,US_equity_util,EIX US Equity
+2,US_equity_util,AEE US Equity
+2,US_equity_util,PPL US Equity
+2,US_bond_gov,SHY US Equity
+2,US_bond_gov,IEI US Equity
+2,US_bond_gov,IEF US Equity
+2,US_bond_gov,TLH US Equity
+2,US_bond_gov,TLT US Equity
+2,EU_bond_cds_0,ITALY CDS USD SR 5Y D14 Corp
+2,EU_bond_cds_1,FRANCE CDS USD SR 5Y D14 Corp
+2,EU_bond_cds_1,GERMANY CDS USD SR 5Y D14 Corp
+2,EM_bond_cds_0,BRAZIL CDS USD SR 5Y D14 Corp
+2,EM_bond_cds_0,INDONESIA CDS USD SR 5Y D14 Corp
+2,EM_bond_cds_0,PHILIPPINES CDS USD SR 5Y D14 Corp
+2,US_bond_fed,FEDL01 Index
+2,US_bond_fed,USGGBE10 Index
+2,US_bond_inflation,USGGBE10 Index
+2,US_bond_yield_0,USGG2YR Index
+2,US_bond_yield_0,USGG5YR Index
+2,US_bond_yield_1,USGG10YR Index
+2,US_bond_yield_1,USGG30YR Index
+2,EM_equity_index,HSI Index
+2,EM_equity_index,STI Index
+2,EM_equity_index,SHCOMP Index
+2,EM_equity_index,SICOM Index
+2,EM_equity_index,JCI Index
+2,G7_equity_index,NKY Index
+2,G7_equity_index,UKX Index
+2,G7_equity_index,SX5E Index
+2,G7_equity_index,XPA Index
+2,G7_equity_index,KOSPI Index
+2,EU_bond_yield,GECU2YR Index
+2,EU_bond_yield,GECU5YR Index
+2,EU_bond_yield,GECU10YR Index
+2,JP_bond_yield,GJGB10 Index
