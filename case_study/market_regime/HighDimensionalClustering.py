@@ -15,7 +15,7 @@ class HighDimensionalClustering:
     reducer_name: TSNE or UMAP
     '''
 
-    def __init__(self, reducer_name,dimension,Nneighbor,cluster_name, Ncluster):
+    def __init__(self, reducer_name,dimension,Nneighbor,clustering_model_name, Ncluster):
 
         # dimension reduction
         self.reducer_name = reducer_name 
@@ -29,6 +29,8 @@ class HighDimensionalClustering:
         self.clustering_model_name = clustering_model_name
         self.clutering_model = None
         self.Ncluster = Ncluster
+        
+        self.labels = None
    
 
         if self.reducer_name == 'TSNE':
@@ -75,10 +77,10 @@ class HighDimensionalClustering:
         if self.clustering_model_name == 'kMeans':
             labels = self.clustering_model.fit_predict(self.low_dimension_embedding)
         
-        # add labels to the data
-        df_labeled = data.copy()
-        df_labeled['label'] = labels
+
+        self.labels = labels
        
-        return labels
+    
+
     
 
