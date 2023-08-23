@@ -1,0 +1,4 @@
+tempfile
+streamlit==1.25.0
+streamlit_chat
+langchain==0.0.231
