@@ -27,22 +27,30 @@ class HighDimensionalClustering:
         
         # clustering
         self.clustering_model_name = clustering_model_name
-        self.clutering_model = None
+        self.clustering_model = None
         self.Ncluster = Ncluster
         
         self.labels = None
    
 
         if self.reducer_name == 'TSNE':
-            self.reducer = TSNE
+            self.reducer = TSNE(
+            n_components=self.dimension,
+            perplexity=self.Nneighbor,
+            )
+
         elif self.reducer_name == 'UMAP':
-            self.reducer = umap.UMAP        
+            self.reducer = umap.UMAP(
+            n_components=self.dimension,
+            n_neighbors=self.Nneighbor,
+            min_dist=0.0,
+            )        
         else:
             raise ValueError('Invalid reducer name')
-        
 
-        if self.cluster_name == 'kMeans':
-            self.cluter_model = KMeans(
+
+        if self.clustering_model_name == 'kMeans':
+            self.clustering_model = KMeans(
                                 init="random",
                                 n_clusters=self.Ncluster,
                                 n_init=30,
@@ -51,35 +59,21 @@ class HighDimensionalClustering:
                                 )
         else:
             raise ValueError('Invalid cluster name')
-
-
-    def embedding(self, data):
-
-        '''
-        data: hign dimensional dataset, market_data
-        '''
-
-        low_dimension_embedding = self.reducer(
-                                n_components=self.dimension,
-                                perplexity=self.Nneighbor,
-                                ).fit_transform(data)
-    
-        self.low_dimension_embedding = low_dimension_embedding
-
-        return low_dimension_embedding
     
 
     def clustering(self, data):
 
         '''
-        data: low dimensional dataset, low_dimension_embedding
+        data: hign dimensional dataset, market_data
         '''
-        if self.clustering_model_name == 'kMeans':
-            labels = self.clustering_model.fit_predict(self.low_dimension_embedding)
-        
+        # dimension reduction
+        low_dimension_embedding = self.reducer.fit_transform(data)
+        self.low_dimension_embedding = low_dimension_embedding
 
+
+        # clustering
+        labels = self.clustering_model.fit_predict(self.low_dimension_embedding)
         self.labels = labels
-       
     
 
     
