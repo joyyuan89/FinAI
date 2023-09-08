@@ -26,12 +26,15 @@ class KMeansVisualizer:
             height=700,
             width=700,
             opacity=self.opacities,
+            color_continuous_scale='plasma',
         )
         fig.update_traces(
             marker=dict(line=dict(width=0, color='DarkSlateGrey')),
             selector=dict(mode='markers')
         )
-        fig.show()
+        #fig.show()
+
+        return fig
 
     def plot_3d(self):
         fig = px.scatter_3d(
@@ -48,4 +51,6 @@ class KMeansVisualizer:
             marker=dict(line=dict(width=0, color='DarkSlateGrey')),
             selector=dict(mode='markers')
         )
-        fig.show()
+        #fig.show()
+
+        return fig

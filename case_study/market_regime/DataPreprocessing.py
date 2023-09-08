@@ -77,21 +77,21 @@ class DataPreprocessing:
         df_derived = pd.DataFrame()  # Create an empty DataFrame to store derived values
 
         for col in df_raw.columns:
-            for rolling_window in self.rolling_window:
+            for rolling_window in self.rolling_windows:
                 col_data = df_raw[col]  # Extract the column data to improve readability
 
-                if "MA" in self.calculation_type:
+                if "MA" in self.calculation_types:
                     ma_col_name = f'{col}_MA{rolling_window}'
                     ma_values = col_data - col_data.rolling(window=rolling_window).mean()
                     df_derived[ma_col_name] = (ma_values > 0).astype(int)  # Convert boolean to 0 or 1
 
-                if "STD" in self.calculation_type:
+                if "STD" in self.calculation_types:
                     std_col_name = f'{col}_STD{rolling_window}'
                     std_values = col_data.rolling(window=rolling_window).std() / col_data.rolling(window=rolling_window).mean()
                     if self.rounded:
-                        df_derived[std_col_name] = DataPreprocessing.round_to_n_levels(values = std_values,n =round_level)
+                        df_derived[std_col_name] = DataPreprocessing.round_to_n_levels(values = std_values,n = self.round_level)
                     
-                if "DIFF" in self.calculation_type:
+                if "DIFF" in self.calculation_types:
                     diff_col_name = f'{col}_DIFF{rolling_window}'
                     diff_values = col_data.diff(rolling_window)
                     df_derived[diff_col_name] = (diff_values > 0).astype(int)  # Convert boolean to 0 or 1
