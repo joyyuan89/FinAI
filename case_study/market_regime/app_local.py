@@ -103,13 +103,7 @@ with st.form(key="my_form"):
         st.stop()
 
 
-# 4. heatmap of correlation
-corr_matrix = raw_data.corr()  # Replace selected_columns with your selected columns
-fig_hm, ax = plt.subplots()
-sns.heatmap(corr_matrix, annot=False, cmap='RdBu_r', ax=ax)
-st.pyplot(fig_hm)
-
-# 5. Feature Engineering
+# 4. Feature Engineering
 
 data_pre = DataPreprocessing(data = raw_data, 
                                 base_index = base_index_name,
@@ -125,9 +119,11 @@ data_pre = DataPreprocessing(data = raw_data,
 df_derived = data_pre.construct_market_data()
 market_data_PCA = df_derived.copy()
 market_data = df_derived.loc[:,~df_derived.columns.str.startswith('US_equity_AMZN')]     # why?
-st.markdown("data preprocessing successfully!")
+st.success("Data preprocessing successfully!", icon="✅")
 
-# 6. Clustering Model
+# 5. Clustering Model
+st.markdown("## 🌡️ Current Market Regime")
+st.markdown("Utilizing umap for dimension reduction and k-means for clustering, every day is divided into a market regime. The darkest and largest point represents :red[Today].")
 umap_kmeans = HighDimensionalClustering(reducer_name = 'UMAP', dimension= 2, Nneighbor=30, clustering_model_name = 'kMeans', Ncluster = 9)
 umap_kmeans.clustering(market_data)
 # add labels to the data
@@ -141,15 +137,31 @@ df_relabeled = rename_labels(df_labeled, relabel_col)
 # plot
 visualizer = KMeansVisualizer(clusterable_embedding, labels = np.array(df_relabeled['relabel']))
 fig_2d = visualizer.plot_2d()
-st.markdown(f"Relabeling by {relabel_col} in each cluster")
+st.markdown(f"The cluters are renamed by :blue[**{relabel_col}**]. The larger number means larger mean value of {relabel_col} of the cluster.")
 st.plotly_chart(fig_2d)
 
 # 7. Bayesian Model
+st.markdown("## 📈 Bayesian Model")
 nb_model = CategoricalNB()
 fig1, fig2, summary_table, mapping, Mean, Std = display(df_labeled, relabel_col, monitor_period = 600)
+st.markdown(f"The cluters/stage are renamed by :blue[**{relabel_col}**]. The larger number means larger mean value of {relabel_col} of the stage.")
 # show results
-st.plotly_chart(fig1)
-st.plotly_chart(fig2)
-st.dataframe(summary_table.round(2))
+col1, space, col2 = st.columns([1,0.1,1])
+
+with col1:
+    st.plotly_chart(fig1)
+
+with col2:
+     st.plotly_chart(fig2)
+
+# st.dataframe(summary_table.round(2))
 st.markdown(f"Chance of rally in {relabel_col}: {Mean}")
 st.markdown(f"Standard deviation: {Std}")
+
+# 4. heatmap of correlation
+st.markdown("")
+st.markdown("### 📎 Appendix: correlation of indexes in raw data")
+corr_matrix = raw_data.corr()  # Replace selected_columns with your selected columns
+fig_hm, ax = plt.subplots()
+sns.heatmap(corr_matrix, annot=False, cmap='RdBu_r', ax=ax)
+st.pyplot(fig_hm)
