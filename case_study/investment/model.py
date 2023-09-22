@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly
+import scipy.stats as stats
 
 class InvestmentSimulation:
     def __init__(self, num_people, interest_rate, scaling_factor, iteration_time):
@@ -111,3 +112,6 @@ class InvestmentSimulation:
         )
 
         fig.show()
+
+    # plot the normal distribution interest return
+
