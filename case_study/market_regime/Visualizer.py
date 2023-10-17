@@ -20,18 +20,28 @@ class KMeansVisualizer:
         fig = px.scatter(
             self.clusterable_embedding,
             x=0, y=1,
-            title='2D Plot',
+            title='Clustering Result and Dimension Reduction (2D)',
             color=self.colors,
             size=self.weights,
             height=700,
             width=700,
             opacity=self.opacities,
             color_continuous_scale='plasma',
+            # rename axis
+            labels={
+                "0": "Dimension 1",
+                "1": "Dimension 2",
+            }
+            # not show axis
         )
         fig.update_traces(
             marker=dict(line=dict(width=0, color='DarkSlateGrey')),
             selector=dict(mode='markers')
         )
+
+        fig.update_xaxes(showticklabels=False)
+        fig.update_yaxes(showticklabels=False)
+
         #fig.show()
 
         return fig
