@@ -1,18 +1,21 @@
 # Model libraries
 from sklearn.manifold import TSNE
-from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
 import umap
+
+from sklearn.cluster import KMeans
+from sklearn.cluster import DBSCAN
 
 
 class HighDimensionalClustering:
 
     '''
     Clustering on High Dimensional Data
-    1. Dimension Reduction (TSNE or UMAP)
-    2. Clustering (kMeans)
+    1. Dimension Reduction (TSNE or UMAP or PCA)
+    2. Clustering (kMeans, DBSCAN)
 
 
-    reducer_name: TSNE or UMAP
+    reducer_name: TSNE or UMAP or PCA
     '''
 
     def __init__(self, reducer_name,dimension,Nneighbor,clustering_model_name, Ncluster):
@@ -44,7 +47,11 @@ class HighDimensionalClustering:
             n_components=self.dimension,
             n_neighbors=self.Nneighbor,
             min_dist=0.0,
-            )        
+            )      
+
+        elif self.reducer_name == 'PCA':
+            self.reducer = PCA(n_components=self.dimension)
+
         else:
             raise ValueError('Invalid reducer name')
 
@@ -57,6 +64,14 @@ class HighDimensionalClustering:
                                 max_iter=300,
                                 #random_state=0
                                 )
+        
+        elif self.clustering_model_name == 'DBSCAN':
+            self.clustering_model = DBSCAN(
+                                eps=0.3,
+                                min_samples=10,
+                                metric="euclidean",
+                                )
+
         else:
             raise ValueError('Invalid cluster name')
     

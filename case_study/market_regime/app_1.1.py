@@ -93,6 +93,7 @@ with st.form(key="my_form"):
     end_date = st.sidebar.date_input("End Date", raw_data.index.max())
     relabeling_index_name = st.sidebar.selectbox("Column for naming clusters", li_set, index = 0)
     #relabeling_window_number = st.sidebar.selectbox("Window number for relabeling", li_rolling_window, index = 1)
+    number_clusters = st.sidebar.slider("Number of clusters", min_value=2, max_value=10, value=9, step=1)
 
     # fixed variables
     relabeling_window_number = 21
@@ -129,7 +130,7 @@ st.success("Data preprocessing successfully!", icon="✅")
 # 5. Clustering Model
 st.markdown("## 🌡️ Current Market Regime")
 st.markdown("Utilizing umap for dimension reduction and k-means for clustering, every day is divided into a market regime. The darkest and largest point represents :red[Today].")
-umap_kmeans = HighDimensionalClustering(reducer_name = 'UMAP', dimension= 2, Nneighbor=30, clustering_model_name = 'kMeans', Ncluster = 9)
+umap_kmeans = HighDimensionalClustering(reducer_name = 'UMAP', dimension= 2, Nneighbor=30, clustering_model_name = 'kMeans', Ncluster = number_clusters)
 umap_kmeans.clustering(market_data)
 # add labels to the data
 clusterable_embedding = umap_kmeans.low_dimension_embedding
