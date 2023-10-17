@@ -15,7 +15,7 @@ warnings.filterwarnings('ignore')
 
 from datapreprocessing import DataPreprocessing
 from model import HighDimensionalClustering
-from visualizer import KMeansVisualizer
+from visualizer import ClusterVisualizer
 from functions_bayes import *
 
 
@@ -141,7 +141,7 @@ df_labeled['label'] = labels
 relabel_col = f'{relabeling_index_name}_MA{relabeling_window_number}'
 df_relabeled = rename_labels(df_labeled, relabel_col)
 # plot
-visualizer = KMeansVisualizer(clusterable_embedding, labels = np.array(df_relabeled['relabel']))
+visualizer = ClusterVisualizer(clusterable_embedding, labels = np.array(df_relabeled['relabel']))
 fig_2d = visualizer.plot_2d()
 st.markdown(f"The cluters are renamed by :blue[**{relabel_col}**]. The larger number means larger mean value of {relabel_col} of the cluster.")
 st.plotly_chart(fig_2d)

@@ -18,7 +18,7 @@ class HighDimensionalClustering:
     reducer_name: TSNE or UMAP or PCA
     '''
 
-    def __init__(self, reducer_name,dimension,Nneighbor,clustering_model_name, Ncluster):
+    def __init__(self, reducer_name,dimension,Nneighbor,clustering_model_name, Ncluster = None, eps = None):
 
         # dimension reduction
         self.reducer_name = reducer_name 
@@ -32,6 +32,7 @@ class HighDimensionalClustering:
         self.clustering_model_name = clustering_model_name
         self.clustering_model = None
         self.Ncluster = Ncluster
+        self.eps = eps
         
         self.labels = None
    
@@ -67,7 +68,7 @@ class HighDimensionalClustering:
         
         elif self.clustering_model_name == 'DBSCAN':
             self.clustering_model = DBSCAN(
-                                eps=0.3,
+                                eps=self.eps, # The maximum distance between two samples for one to be considered as in the neighborhood of the other.
                                 min_samples=10,
                                 metric="euclidean",
                                 )
