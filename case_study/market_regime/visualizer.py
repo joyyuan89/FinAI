@@ -1,7 +1,7 @@
 import numpy as np
 import plotly.express as px
 
-class KMeansVisualizer:
+class ClusterVisualizer:
 
     def __init__(self, clusterable_embedding, labels):
 
@@ -15,6 +15,18 @@ class KMeansVisualizer:
         self.colors[-1] = -1  # set the darkest color for this point
         self.weights[-1] = 80  # set a larger size value for this point
         self.opacities[-1] = 1  # set a higher opacity value for this point
+
+
+        # Highlight the 1M
+        self.colors[-21] = -1  # set the darkest color for this point
+        self.weights[-21] = 60  # set a larger size value for this point
+        self.opacities[-21] = 1  # set a higher opacity value for this point
+
+        # Highlight the 3M
+        self.colors[-65] = -1  # set the darkest color for this point
+        self.weights[-65] = 40  # set a larger size value for this point
+        self.opacities[-65] = 1  # set a higher opacity value for this point
+
 
     def plot_2d(self):
         fig = px.scatter(
