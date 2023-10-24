@@ -135,7 +135,7 @@ df_labeled['label'] = labels
 relabel_col = f'{relabeling_index_name}_MA{relabeling_window_number}'
 df_relabeled = rename_labels(df_labeled, relabel_col)
 # plot
-visualizer = ClusterVisualizer(clusterable_embedding, labels = np.array(df_relabeled['relabel']))
+visualizer = ClusterVisualizer(clusterable_embedding, labels = np.array(df_relabeled['relabel']),trace = True)
 fig_2d = visualizer.plot_2d()
 st.markdown(f"The cluters are renamed by :blue[**{relabel_col}**]. The larger number means larger mean value of {relabel_col} of the cluster.")
 st.plotly_chart(fig_2d)
@@ -156,7 +156,7 @@ with col2:
 
 # st.dataframe(summary_table.round(2))
 st.markdown(f"Chance of rally in {relabel_col}: {Mean}")
-st.markdown(f"Standard deviation: {Std}")
+#st.markdown(f"Standard deviation: {Std}")
 
 # 4. heatmap of correlation
 st.markdown("")

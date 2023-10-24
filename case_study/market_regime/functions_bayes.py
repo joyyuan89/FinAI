@@ -72,7 +72,7 @@ def display(df_labeled, relabel_col, monitor_period):
         x=df_relabeled[-monitor_period:].index,
         y=df_relabeled[-monitor_period:]["relabel"],
         labels=dict(x="Date", y="Cycle Stage"),
-        title= "Cycle Stage Tracking" ,
+        title=f"Historical Trajectory of {relabel_col}",
         height=350, width=500,
         )
     
@@ -81,31 +81,35 @@ def display(df_labeled, relabel_col, monitor_period):
 
     # Bayes model probability
     window_list = [i for i in range(20, 500) if i % 10 == 0]
-    res = np.array([0])
+    probability = np.array([0])
 
     for window_period in window_list:
 
         dataset = build_dataset(relabels, window_period)
-        res_i = naive_bayes(dataset, nb_model, if_eval = False)[0] # the list of probability for each culster
-        res = np.add(res_i, res)
-    
+        result  = naive_bayes(dataset, nb_model, if_eval = False) # the list of probability for each culster
+        pro_i = result[0]
+        #acc_i = result[2]
+        probability = np.add(pro_i, probability)
+        #accurancy = accurancy+acc_i
+
     n = len(window_list)
-    res = (res/n).round(3)  # avarage probability for each culster
-    res = pd.DataFrame(res)
+    probability = ( probability/n).round(3)  # avarage probability for each culster
+    probability = pd.DataFrame(probability)
+    probability.index = probability.index+1
 
     fig2 = px.bar(
-        res,
+        probability,
         height=350, width=500,
-        text_auto=True,
-        title = "Probability of Future Stage",
-        labels=dict(x="Stage", y="Probability"),
+        labels=dict(index="Cycle", value="Probability"),
+        title="Transition Probability"
         )
+    fig2.update(layout_showlegend=False)
 
     # statistics of each cluster
     summary_table = df_relabeled.groupby("relabel")[relabel_col].describe()
 
     # summary
-    summary_table['Chance'] = res
+    summary_table['Chance'] = probability
     summary_table['Equity_rally_odds'] = summary_table['mean'] * summary_table['Chance']
     summary_table['Equity_rally_STD'] = summary_table['std'] * summary_table['Chance']
     Mean = summary_table.Equity_rally_odds.sum().round(3)

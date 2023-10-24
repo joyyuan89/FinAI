@@ -3,29 +3,32 @@ import plotly.express as px
 
 class ClusterVisualizer:
 
-    def __init__(self, clusterable_embedding, labels):
+    def __init__(self, clusterable_embedding, labels, trace = True):
 
         self.clusterable_embedding = clusterable_embedding
         self.labels = labels
         self.colors = self.labels
         self.weights = np.full_like(self.labels, fill_value=20)
         self.opacities = np.full_like(self.labels, fill_value=1) / 4
+        self.trace = trace
 
-        # Highlight the last point
-        self.colors[-1] = -1  # set the darkest color for this point
-        self.weights[-1] = 80  # set a larger size value for this point
-        self.opacities[-1] = 1  # set a higher opacity value for this point
+        if trace: #if true, then highlight the points of Today,1M,and 3M
+
+            # Highlight the last point
+            self.colors[-1] = -1  # set the darkest color for this point
+            self.weights[-1] = 80  # set a larger size value for this point
+            self.opacities[-1] = 1  # set a higher opacity value for this point
 
 
-        # Highlight the 1M
-        self.colors[-21] = -1  # set the darkest color for this point
-        self.weights[-21] = 60  # set a larger size value for this point
-        self.opacities[-21] = 1  # set a higher opacity value for this point
+            # Highlight the 1M
+            self.colors[-21] = -1  # set the darkest color for this point
+            self.weights[-21] = 60  # set a larger size value for this point
+            self.opacities[-21] = 1  # set a higher opacity value for this point
 
-        # Highlight the 3M
-        self.colors[-65] = -1  # set the darkest color for this point
-        self.weights[-65] = 40  # set a larger size value for this point
-        self.opacities[-65] = 1  # set a higher opacity value for this point
+            # Highlight the 3M
+            self.colors[-65] = -1  # set the darkest color for this point
+            self.weights[-65] = 40  # set a larger size value for this point
+            self.opacities[-65] = 1  # set a higher opacity value for this point
 
 
     def plot_2d(self):
@@ -41,8 +44,8 @@ class ClusterVisualizer:
             color_continuous_scale='plasma',
             # rename axis
             labels={
-                "0": "Dimension 1",
-                "1": "Dimension 2",
+                "0": " ",
+                "1": " ",
             }
             # not show axis
         )
